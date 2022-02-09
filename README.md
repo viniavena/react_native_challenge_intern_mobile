@@ -22,6 +22,13 @@ Criar um aplicativo que organize a leitura dos artigos da revista HealthCare.
 * Sua solução deve ter no mínimo 3 telas tela obrigátorios que estão disponíveis no nesse figma https://www.figma.com/file/U67le6ZsSSb0XOgU4F7COC/Est%C3%A1gio-%2F-2022.1?node-id=2%3A274 e ao menos mais 1 tela de livre escolha e no máximo 2 para organização dos artigos.
 
 
+### Telas A serem desenvolvidas
+1. Boas Vindas
+2. Login
+3. Registro
+4. Primeira tela de artigos (Bônus)
+5. Segunda tela de artigos  (Bônus)
+
 #### Regras de validação do campo de senha 🔑
 1. Pelo menos 1 caractere maiúsculo.
 2. Pelo menos 1 caractere minúsculo.
