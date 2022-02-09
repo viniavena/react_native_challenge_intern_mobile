@@ -76,12 +76,12 @@ Criar um aplicativo que organize a leitura dos artigos da revista HealthCare.
 Em um terminal:
 
 ```bash
-npm install # instalar dependências
-
 Android
+npm install # instalar dependências
 npm run android # iniciar o metro bundler + abrir simulador android
 
 iOS
+npm install # instalar dependências
 cd ios && npx pod-install
 npm run ios # iniciar o metro bundler + abrir simulador iOS
 npm test # executar testes unitários
@@ -91,12 +91,12 @@ Ou...
 
 
 ```bash
-yarn # instalar dependências
-
 Android
+yarn # instalar dependências
 yarn android # iniciar o metro bundler + abrir simulador android
 
 iOS
+yarn # instalar dependências
 cd ios && npx pod-install
 yarn ios # iniciar o metro bundler + abrir simulador iOS
 yarn test # executar testes unitários
