@@ -51,7 +51,8 @@ react-native run-ios # pra instalar a aplicação em um smartphone IOS
 ```
 
 ## Recomendações
-
+* Você deve usar os métodos do arquivo loginAPI para criar uma nova usuária
+* Você deve usar os métodos do arquivo loginAPI para realizar a autenticação do login
 * Você deve usar a API da HealthCare do governo dos USA como nossa provedora de artigos https://www.healthcare.gov/api/articles.json 
 * Fazer o uso de pacotes como Axios ou Fetch para requisições http
 
