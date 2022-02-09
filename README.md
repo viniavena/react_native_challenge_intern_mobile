@@ -17,10 +17,14 @@ Criar um aplicativo que organize a leitura dos artigos da revista HealthCare.
 ## Instruções 📖
 
 * Prefira realizar o seu próprio código do que utilizar bibliotecas ou componentes prontos.
-* Escrever o código na linguagem Javascript ou Typescript, utilizando o framework React Native.
 * Fazer o uso dos artigos da API: 'https://www.healthcare.gov/api/articles.json'.
 * Sua solução deve ter no mínimo 3 telas tela obrigátorios que estão disponíveis no nesse figma https://www.figma.com/file/U67le6ZsSSb0XOgU4F7COC/Est%C3%A1gio-%2F-2022.1?node-id=2%3A274 e ao menos mais 1 tela de livre escolha e no máximo 2 para organização dos artigos.
 
+### Tecnologias
+* Você pode realizar o desenvolvimento desse desáfio numa plataforma Mobile ou Web.
+* Se a tecnologia escolhida for Mobile: Você obrigatoriamente precisa utilizar React Native
+* Se a tecnologia escolhida for Web: Fique a vontade para utilizar qualquer framework ou nenhum.
+* Temos uma recomendação de Framework para você, mas só use se você se sentir a vontade em trabalhar com eles. Para Mobile use preferencialmente React Native em Web preferencialmente React.
 
 ### Telas A serem desenvolvidas
 1. Boas Vindas
@@ -42,7 +46,6 @@ Criar um aplicativo que organize a leitura dos artigos da revista HealthCare.
 3. Nome do receptor (Ex: developer).
 4. Digitos de 0 até 9
 5. apenas os caracteres especiais: Ponto (.), Underline (_), Hífen (-) e Mais (+).
-
 
 ### Recomendações 🌈
 * Você deve usar os métodos do arquivo loginAPI para criar uma nova usuária ⭐️
