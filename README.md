@@ -1,4 +1,4 @@
-# Sanar Challenge React Native
+# Sanar Intern Challenge Mobile
 Este é um desafio que vai ajudar a identificar seus pontos fortes como uma pessoa desenvolvedora mobile na Sanar.
 
 `
@@ -21,10 +21,7 @@ Criar um aplicativo que organize a leitura dos artigos da revista HealthCare.
 * Sua solução deve ter no mínimo 3 telas tela obrigátorios que estão disponíveis no nesse figma https://www.figma.com/file/U67le6ZsSSb0XOgU4F7COC/Est%C3%A1gio-%2F-2022.1?node-id=2%3A274 e ao menos mais 1 tela de livre escolha e no máximo 2 para organização dos artigos.
 
 ### Tecnologias
-* Você pode realizar o desenvolvimento desse desáfio numa plataforma Mobile ou Web.
-* Se a tecnologia escolhida for Mobile: Você obrigatoriamente precisa utilizar React Native
-* Se a tecnologia escolhida for Web: Fique a vontade para utilizar qualquer framework ou nenhum.
-* Temos uma recomendação de Framework para você, mas só use se você se sentir a vontade em trabalhar com eles. Para Mobile use preferencialmente React Native em Web preferencialmente React.
+* Precisamos que você faça essa etapa utilizando o framework do React Native.
 
 ### Telas A serem desenvolvidas
 1. Boas Vindas
@@ -78,16 +75,12 @@ yarn android # iniciar o metro bundler + abrir simulador android
 yarn ios # iniciar o metro bundler + abrir simulador iOS
 ```
 
-Para instalar a aplicação, em outro terminal execute:
-```bash
-react-native run-android # pra instalar a aplicação em um smartphone Android
-react-native run-ios # pra instalar a aplicação em um smartphone IOS
-```
-
 ## Dicas ⌨️
 
 * Um código bem organizado e seguindo algum padrão de projeto é sempre bem vindo
-* A capacidade de criar interfaces complexas, utilizando os principais conceitos do React é sempre um diferencial interessante
-* Entregar com qualidade mais do que é solicitado demonstra que você é capaz de ir além
+* A capacidade de criar interfaces utilizando boas praticas é sempre um diferencial interessante
+* Fique a vontade para inovar ou mostrar as coisas que você mais goste
+* Se divirta
+* Qualquer problema entre em contato com a gente.
 
 ## Boa Sorte! 🍀🍀🍀🍀
