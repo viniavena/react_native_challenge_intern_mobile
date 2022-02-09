@@ -80,4 +80,4 @@ react-native run-ios # pra instalar a aplicação em um smartphone IOS
 * A capacidade de criar interfaces complexas, utilizando os principais conceitos do React é sempre um diferencial interessante
 * Entregar com qualidade mais do que é solicitado demonstra que você é capaz de ir além
 
-## Boa Sorte!
+## Boa Sorte! 🍀🍀🍀🍀
