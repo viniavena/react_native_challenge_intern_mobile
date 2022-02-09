@@ -66,8 +66,9 @@ Criar um aplicativo que organize a leitura dos artigos da revista HealthCare.
 
 * Node v16.11.1 (recomendo instalar via [NVM](https://github.com/creationix/nvm))
 * [React Native Cli](https://www.npmjs.com/package/react-native-cli)
-* [Yarn](https://yarnpkg.com)
-* cd ios && npx pod-install (se for desenvolver para iOS)
+* [NPM](https://www.npmjs.com/)
+* [Yarn](https://yarnpkg.com)  (Opcional apenas se não quiser utilizar o NPM)
+* [Cocoa Pods - Apenas iOS](https://cocoapods.org/)
 
 
 #### Instalar dependências 🏗
@@ -76,7 +77,12 @@ Em um terminal:
 
 ```bash
 npm install # instalar dependências
+
+Android
 npm run android # iniciar o metro bundler + abrir simulador android
+
+iOS
+cd ios && npx pod-install
 npm run ios # iniciar o metro bundler + abrir simulador iOS
 npm test # executar testes unitários
 ```
