@@ -1,6 +1,11 @@
 # Sanar Intern Challenge Mobile
 Este é um desafio que vai ajudar a identificar seus pontos fortes como uma pessoa desenvolvedora mobile na Sanar.
 
+<div align="center">
+  <img src="screenshot_initial_project_mobile.png" alt="Foto do Projeto Inicial" height="599" width="430"/>
+</div>
+
+
 `
 O objetivo desse desafio é construir um aplicativo utilizando a tecnologia React Native e com isso demonstrar suas habilidades técnicas e domínio do framework fazendo o uso dessa tecnologia.
 `
