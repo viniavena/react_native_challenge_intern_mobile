@@ -2,7 +2,7 @@
 Este é um desafio que vai ajudar a identificar seus pontos fortes como uma pessoa desenvolvedora mobile na Sanar.
 
 `
-O objetivo desse desafio é construir um aplicativo utilizando a tecnologia React Native e com isso demonstra suas habilidades técnicas e domínio do frameworkfazendo o uso dessa tecnologia.
+O objetivo desse desafio é construir um aplicativo utilizando a tecnologia React Native e com isso demonstrar suas habilidades técnicas e domínio do frameworkfazendo o uso dessa tecnologia.
 `
 
 ### Problema:
