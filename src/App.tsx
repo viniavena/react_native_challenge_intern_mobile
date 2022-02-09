@@ -10,12 +10,8 @@ import {
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import SanarLogo from './components/SanarLogo';
-import {doCreateUser, doLogin, readUser} from './services/loginAPI';
 
 const App = () => {
-  readUser().then(value => {
-    console.log(value);
-  });
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
