@@ -29,6 +29,13 @@ Criar um aplicativo que organize a leitura dos artigos da revista HealthCare.
 4. Pelo menos 1 caractere especial.
 5. Mínimo de 8 caracteres.
 
+### Regras de validação do campo do email
+1. @ simbolo.
+2. Nome do domínio (Ex: sanar.com).
+3. Nome do receptor (Ex: developer).
+4. Digitos de 0 até 9
+5. apenas os caracteres especiais: Ponto (.), Underline (_), Hífen (-) e Mais (+).
+
 ## Entrega
 
 * Criar uma conta no GitHub e fazer um fork desse projeto
