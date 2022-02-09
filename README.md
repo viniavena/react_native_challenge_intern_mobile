@@ -5,12 +5,12 @@ Este é um desafio que vai ajudar a identificar seus pontos fortes como uma pess
 O objetivo desse desafio é construir um aplicativo utilizando a tecnologia React Native e com isso demonstrar suas habilidades técnicas e domínio do framework fazendo o uso dessa tecnologia.
 `
 
-### Problema:
+## Problema:
 
 As usuárias da sanar são super profissionais que desejam impactar e revolucionar a sáude do mundo, para isso será necessário que elas estudem bastante
 com os artigos mais renomados publicados na revista HealthCare, essa revista publica varios artigos e o recomendado é que as profissionais realizem uma leitura diária. Porém elas estão ocupadas em suas rotinas que podem ser dentro de salas de aulas, realizando a residência médica ou realizando atendimentos, com isso elas estão longe de seus escritórios ou local de estudos e não estão conseguindo se atualizar. Nossa super PO e lideranças estratégicas identificaram que um novo produto, sendo mais específico uma App pode resolver essa dor.
 
-### Solução
+## Solução
 
 Criar um aplicativo que organize a leitura dos artigos da revista HealthCare.
 
@@ -22,19 +22,26 @@ Criar um aplicativo que organize a leitura dos artigos da revista HealthCare.
 * Sua solução deve ter no mínimo 3 telas tela obrigátorios que estão disponíveis no nesse figma https://www.figma.com/file/U67le6ZsSSb0XOgU4F7COC/Est%C3%A1gio-%2F-2022.1?node-id=2%3A274 e ao menos mais 1 tela de livre escolha e no máximo 2 para organização dos artigos.
 
 
-### Regras de validação do campo de senha
+#### Regras de validação do campo de senha
 1. Pelo menos 1 caractere maiúsculo.
 2. Pelo menos 1 caractere minúsculo.
 3. Pelo menos 1 dígito.
 4. Pelo menos 1 caractere especial.
 5. Mínimo de 8 caracteres.
 
-### Regras de validação do campo do email
+#### Regras de validação do campo do email
 1. @ simbolo.
 2. Nome do domínio (Ex: sanar.com).
 3. Nome do receptor (Ex: developer).
 4. Digitos de 0 até 9
 5. apenas os caracteres especiais: Ponto (.), Underline (_), Hífen (-) e Mais (+).
+
+
+### Recomendações
+* Você deve usar os métodos do arquivo loginAPI para criar uma nova usuária
+* Você deve usar os métodos do arquivo loginAPI para realizar a autenticação do login
+* Você deve usar a API da HealthCare do governo dos USA como nossa provedora de artigos https://www.healthcare.gov/api/articles.json 
+* Fazer o uso de pacotes como Axios ou Fetch para requisições http
 
 ## Entrega
 
@@ -50,7 +57,7 @@ Criar um aplicativo que organize a leitura dos artigos da revista HealthCare.
 * cd ios && npx pod-install (se for desenvolver para iOS)
 
 
-#### Instalar dependências
+## Instalar dependências
 
 Em um terminal:
 
@@ -65,12 +72,6 @@ Para instalar a aplicação, em outro terminal execute:
 react-native run-android # pra instalar a aplicação em um smartphone Android
 react-native run-ios # pra instalar a aplicação em um smartphone IOS
 ```
-
-## Recomendações
-* Você deve usar os métodos do arquivo loginAPI para criar uma nova usuária
-* Você deve usar os métodos do arquivo loginAPI para realizar a autenticação do login
-* Você deve usar a API da HealthCare do governo dos USA como nossa provedora de artigos https://www.healthcare.gov/api/articles.json 
-* Fazer o uso de pacotes como Axios ou Fetch para requisições http
 
 ## Dicas
 
