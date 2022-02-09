@@ -87,11 +87,19 @@ npm run ios # iniciar o metro bundler + abrir simulador iOS
 npm test # executar testes unitários
 ```
 
+Ou...
+
+
 ```bash
 yarn # instalar dependências
+
+Android
 yarn android # iniciar o metro bundler + abrir simulador android
+
+iOS
+cd ios && npx pod-install
 yarn ios # iniciar o metro bundler + abrir simulador iOS
-yarn test
+yarn test # executar testes unitários
 ```
 
 ## Dicas ⌨️
