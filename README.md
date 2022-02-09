@@ -42,6 +42,7 @@ Criar um aplicativo que organize a leitura dos artigos da revista HealthCare.
 * Você deve usar os métodos do arquivo loginAPI para realizar a autenticação do login
 * Você deve usar a API da HealthCare do governo dos USA como nossa provedora de artigos https://www.healthcare.gov/api/articles.json 
 * Fazer o uso de pacotes como Axios ou Fetch para requisições http
+* Codem pensando na melhor experiência da usuária ♥️
 
 ## Entrega
 
