@@ -75,9 +75,17 @@ Criar um aplicativo que organize a leitura dos artigos da revista HealthCare.
 Em um terminal:
 
 ```bash
+npm install # instalar dependências
+npm run android # iniciar o metro bundler + abrir simulador android
+npm run ios # iniciar o metro bundler + abrir simulador iOS
+npm test # executar testes unitários
+```
+
+```bash
 yarn # instalar dependências
 yarn android # iniciar o metro bundler + abrir simulador android
 yarn ios # iniciar o metro bundler + abrir simulador iOS
+yarn test
 ```
 
 ## Dicas ⌨️
