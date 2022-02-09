@@ -23,13 +23,13 @@ const App = () => {
       <Text style={styles.sectionTitle}>Sanar App</Text>
       <View style={styles.sectionContainer}>
         <Text style={styles.sectionDescription}>
-          Unlimited acces to thousands of online Articles...
+          Acessos a milhares de artigos online.
         </Text>
         <View style={styles.image}>
           <SanarLogo />
         </View>
         <View style={styles.button}>
-          <Button title="Get Started" />
+          <Button title="Começar" />
         </View>
       </View>
     </SafeAreaView>
@@ -51,12 +51,15 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '400',
     color: '#338BFF',
+    alignSelf: 'center',
   },
   highlight: {
     fontWeight: '900',
   },
   image: {
     paddingTop: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   button: {
     paddingTop: 320,
