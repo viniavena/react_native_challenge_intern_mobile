@@ -112,7 +112,8 @@ const SignInScreen = ({navigation}: PropsSignInScreen) => {
       <View
         style={{flexDirection: 'row', justifyContent: 'center', marginTop: 20}}>
         <Text style={styles.notAccess}>Não possui um acesso? </Text>
-        <TouchableOpacity>
+        <TouchableOpacity
+        onPress={()=>navigation.navigate('SignUpScreen')}>
           <Text style={styles.signUpButton}>Cadastre-se aqui!</Text>
         </TouchableOpacity>
       </View>

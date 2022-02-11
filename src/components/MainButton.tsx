@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {ActivityIndicator, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import { screenHeight, screenWidth } from '../constants/dimensions';
 
 interface MainButtonProps {
@@ -8,6 +8,7 @@ interface MainButtonProps {
   text: string;
   textColor: string;
   disabled: boolean;
+  loading: boolean;
 }
 
 const MainButton = ( props : MainButtonProps) => {
@@ -16,7 +17,8 @@ const MainButton = ( props : MainButtonProps) => {
     disabled={props.disabled}
       onPress={props.onPress}
       style={{...styles.buttonContainer, backgroundColor: props.containerColor}}>
-      <Text style={{...styles.buttonText, color: props.textColor}}>{props.text}</Text>
+{        props.loading? <ActivityIndicator color={props.textColor}/> :
+      <Text style={{...styles.buttonText, color: props.textColor}}>{props.text}</Text>}
     </TouchableOpacity>
   );
 };

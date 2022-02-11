@@ -30,6 +30,7 @@ const OnboardScreen = ({navigation}: PropsOnboardScreen) => {
           text="Começar Agora"
           textColor={colors.background}
           disabled={false}
+          loading={false}
         />
       </View>
     </View>
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     alignItems: 'center',
-    paddingTop: screenHeight * 0.05,
+    paddingTop: screenHeight * 0.1,
     backgroundColor: colors.background,
   },
   title: {
