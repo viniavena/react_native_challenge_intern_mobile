@@ -1,15 +1,14 @@
 import React from 'react';
 import {
-  Button,
   SafeAreaView,
-  StyleSheet,
-  Text,
   useColorScheme,
-  View,
 } from 'react-native';
 
+import 'react-native-gesture-handler';
+
+import {NavigationContainer} from '@react-navigation/native';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import SanarLogo from './components/SanarLogo';
+import MainStack from './routes/main.routes'
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -21,12 +20,11 @@ const App = () => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
+      <NavigationContainer>
+        <MainStack/>
+      </NavigationContainer>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-
-});
 
 export default App;
