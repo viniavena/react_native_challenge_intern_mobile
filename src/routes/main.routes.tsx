@@ -28,7 +28,7 @@ export default function MainStack(){
 
     <RootStack.Screen name='OnboardScreen' component={OnboardScreen}/>
     
-    <RootStack.Screen name='SignInScreen' component={SignInScreen}/>
+    <RootStack.Screen name='SignInScreen' component={SignInScreen}   />
 
     <RootStack.Screen name='SignUpScreen' component={SignUpScreen}/>
 

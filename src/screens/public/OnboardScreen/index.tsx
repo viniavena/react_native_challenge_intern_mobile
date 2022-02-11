@@ -10,7 +10,7 @@ import MainButton from '../../../components/MainButton';
 const OnboardScreen = ({navigation}: PropsOnboardScreen) => {
   return (
     <View style={styles.background}>
-      <SanarLogo />
+      <SanarLogo negative={false}/>
       <Text style={styles.title}>
         Temos uma solução para cada {'\n'} etapa da sua carreira na medicina
       </Text>
@@ -29,6 +29,7 @@ const OnboardScreen = ({navigation}: PropsOnboardScreen) => {
           containerColor={colors.primary}
           text="Começar Agora"
           textColor={colors.background}
+          disabled={false}
         />
       </View>
     </View>

@@ -7,11 +7,13 @@ interface MainButtonProps {
   containerColor: string;
   text: string;
   textColor: string;
+  disabled: boolean;
 }
 
 const MainButton = ( props : MainButtonProps) => {
   return (
     <TouchableOpacity
+    disabled={props.disabled}
       onPress={props.onPress}
       style={{...styles.buttonContainer, backgroundColor: props.containerColor}}>
       <Text style={{...styles.buttonText, color: props.textColor}}>{props.text}</Text>

@@ -11,17 +11,10 @@ import {colors} from './constants/theme';
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    flex: 1,
-    backgroundColor: colors.background,
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
       <NavigationContainer>
         <MainStack />
       </NavigationContainer>
-    </SafeAreaView>
   );
 };
 
