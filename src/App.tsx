@@ -1,27 +1,25 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  useColorScheme,
-} from 'react-native';
+import {SafeAreaView, useColorScheme} from 'react-native';
 
 import 'react-native-gesture-handler';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import MainStack from './routes/main.routes'
+
+import MainStack from './routes/main.routes';
+import {colors} from './constants/theme';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    flex: 1
+    flex: 1,
+    backgroundColor: colors.background,
   };
 
   return (
     <SafeAreaView style={backgroundStyle}>
       <NavigationContainer>
-        <MainStack/>
+        <MainStack />
       </NavigationContainer>
     </SafeAreaView>
   );
