@@ -61,7 +61,7 @@ const [loading, setLoading] = useState(false)
 
   return (
     <View style={styles.background}>
-      <SignedOutHeader onPress={() => navigation.goBack()} text="Login" />
+      <SignedOutHeader onPress={() => navigation.navigate('OnboardScreen')} text="Login" />
 
       <SanarLogo negative={true} />
 
