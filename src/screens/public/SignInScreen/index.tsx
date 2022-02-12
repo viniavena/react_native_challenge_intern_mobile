@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -8,15 +8,17 @@ import {
   TextInput,
 } from 'react-native';
 
+import * as yup from 'yup';
+import {Formik} from 'formik';
+import { showMessage } from 'react-native-flash-message';
+
 import {PropsSignInScreen} from '../../../routes/main.routes';
 import SanarLogo from '../../../components/SanarLogo';
 import {colors} from '../../../constants/theme';
 import {screenHeight, screenWidth} from '../../../constants/dimensions';
 import MainButton from '../../../components/MainButton';
-import * as yup from 'yup';
-import {Formik} from 'formik';
 import SignedOutHeader from '../../../components/SignedOutHeader';
-import Input from '../../../components/Input';
+import {doLogin} from '../../../services/loginAPI'
 
 const loginValidationSchema = yup.object().shape({
   email: yup
@@ -34,6 +36,29 @@ const loginValidationSchema = yup.object().shape({
 });
 
 const SignInScreen = ({navigation}: PropsSignInScreen) => {
+
+const [loading, setLoading] = useState(false)
+
+  async function handleSubmit(values: any)
+  {
+    setLoading(true)
+    console.log(values)
+    const response = await doLogin(values)
+    if(response == 'OK'){
+      showMessage({
+        message: "Seja bem vind@!",
+        type: "success",
+      });
+      navigation.navigate('MainScreen')
+    } else {
+      showMessage({
+        message: "Erro ao fazer login",
+        type: "danger",
+      });
+    }
+    setLoading(false)
+  }
+
   return (
     <View style={styles.background}>
       <SignedOutHeader onPress={() => navigation.goBack()} text="Login" />
@@ -49,7 +74,7 @@ const SignInScreen = ({navigation}: PropsSignInScreen) => {
         validationSchema={loginValidationSchema}
         initialValues={{email: '', password: ''}}
         onSubmit={values => {
-          console.log(values);
+          handleSubmit(values);
         }}>
         {({
           handleChange,
@@ -103,6 +128,7 @@ const SignInScreen = ({navigation}: PropsSignInScreen) => {
                 text="Entrar"
                 textColor={colors.primary}
                 disabled={!isValid}
+                loading={loading}
               />
             </View>
           </>

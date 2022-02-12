@@ -24,7 +24,9 @@ const RootStack = createStackNavigator<RootStackParamList>();
 
 export default function MainStack(){
     return(
-      <RootStack.Navigator initialRouteName='OnboardScreen' screenOptions={{headerShown: false}}>
+      <RootStack.Navigator 
+      initialRouteName='MainScreen' 
+      screenOptions={{headerShown: false}}>
 
     <RootStack.Screen name='OnboardScreen' component={OnboardScreen}/>
     
@@ -32,7 +34,9 @@ export default function MainStack(){
 
     <RootStack.Screen name='SignUpScreen' component={SignUpScreen}/>
 
-    <RootStack.Screen name='MainScreen' component={MainScreen}/>
+    <RootStack.Screen name='MainScreen' component={MainScreen}
+        options={{ gestureEnabled: false }}
+    />
 
   </RootStack.Navigator>)
 }
