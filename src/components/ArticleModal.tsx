@@ -22,9 +22,7 @@ const ArticleModal = (props: ArticleModalProps) => {
   let date = props.date;
   try {
     date = format(new Date(props.date.split(' ')[0]), 'dd/MM/yyyy');
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 
   const baseUrl = 'https://www.healthcare.gov';
 

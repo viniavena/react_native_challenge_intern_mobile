@@ -41,7 +41,6 @@ const SignInScreen = ({navigation}: PropsSignInScreen) => {
 
   async function logIn(values: any) {
     setLoading(true);
-    console.log(values);
     const response = await doLogin(values);
     if (response == 'OK') {
       showMessage({
