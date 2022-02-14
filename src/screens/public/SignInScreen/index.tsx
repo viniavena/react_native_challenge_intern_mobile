@@ -66,7 +66,7 @@ const [loading, setLoading] = useState(false)
       <SanarLogo negative={true} />
 
       <Image
-        source={require('../../../assets/images/imagem-avatar.png')}
+        source={require('../../../assets/images/user-avatar.png')}
         style={{height: screenHeight * 0.16, marginVertical: screenHeight*0.05}}
         resizeMode="contain"
       />

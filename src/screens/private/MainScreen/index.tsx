@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 
 import {Modalize} from 'react-native-modalize';
+import {showMessage} from 'react-native-flash-message';
 
 import {PropsMainScreen} from '../../../routes/main.routes';
 import {getArticles} from '../../../services/healthCareApi';
@@ -25,8 +26,8 @@ const ItemDivider = () => {
 
 const MainScreen = ({navigation}: PropsMainScreen) => {
   const [loading, setLoading] = useState(false);
-  const [articlesList, setArticlesList] = useState([]);
-  const [articleInfo, setArticleInfo] = useState({});
+  const [articlesList, setArticlesList] = useState<any[]>([]);
+  const [articleInfo, setArticleInfo] = useState<any>({});
 
   useEffect(() => {
     setLoading(true);
@@ -67,12 +68,16 @@ const MainScreen = ({navigation}: PropsMainScreen) => {
         {
           text: 'Confirmar',
           onPress: () => {
-            navigation.navigate('SignInScreen')
+            showMessage({
+              message: 'Volte sempre!',
+              type: 'success',
+            });
+            navigation.navigate('SignInScreen');
           },
           style: 'destructive',
         },
       ],
-      { cancelable: false }
+      {cancelable: false},
     );
   };
 
@@ -103,6 +108,7 @@ const MainScreen = ({navigation}: PropsMainScreen) => {
             data={articlesList}
             renderItem={({item, index}) => (
               <ArticleCard
+                key={index}
                 content={item.content}
                 date={item.date}
                 title={item.title}
@@ -147,6 +153,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     height: 1,
     width: screenWidth * 0.85 - 10,
+    marginVertical: 5,
     backgroundColor: colors.onBoardingTitle + 60,
   },
 });

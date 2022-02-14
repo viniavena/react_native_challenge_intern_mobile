@@ -1,15 +1,15 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {format} from 'date-fns';
-import { Modalize } from 'react-native-modalize';
+import {Modalize} from 'react-native-modalize';
 import RenderHtml from 'react-native-render-html';
 
 import {screenHeight, screenWidth} from '../constants/dimensions';
 import {colors} from '../constants/theme';
-import { ScrollView } from 'react-native-gesture-handler';
+import {ScrollView} from 'react-native-gesture-handler';
 
 interface ArticleModalProps {
-modalRef: any;
+  modalRef: any;
   title: string;
   date: string;
   content: string;
@@ -17,7 +17,14 @@ modalRef: any;
 }
 
 const ArticleModal = (props: ArticleModalProps) => {
-const date = format(new Date(props.date.split(' ')[0]), 'dd/MM/yyyy');
+
+  let date = props.date
+  try{
+    date = format(new Date(props.date.split(' ')[0]), 'dd/MM/yyyy');
+  } catch(err){
+    console.log(err)
+  }
+  
 
   const formatContent = (content: string) => {
     var str = '';
@@ -28,44 +35,37 @@ const date = format(new Date(props.date.split(' ')[0]), 'dd/MM/yyyy');
   };
 
   const source = {
-    html: props.content
+    html: props.content,
   };
-  
 
   const articleLanguage = (lang: string) => {
-      var language = ''
-      if(lang == 'en'){
-       language = 'Inglês'   
-      }
-      else if(lang == 'es'){
-          language = 'Espanhol'
-      }
-      return language
-  }
+    var language = '';
+    if (lang == 'en') {
+      language = 'Inglês';
+    } else if (lang == 'es') {
+      language = 'Espanhol';
+    }
+    return language;
+  };
 
   return (
     <Modalize ref={props.modalRef} modalTopOffset={screenHeight * 0.02}>
-        <ScrollView style={styles.container}>
-      <Text style={styles.title}>{props.title}</Text>
-      <View style={styles.infos}>
-      <Text style={styles.date}>{articleLanguage(props.lang)}</Text>
-      <Text style={styles.date}>{date}</Text>
-      </View> 
+      <ScrollView style={styles.container}>
+        <Text style={styles.title}>{props.title}</Text>
+        <View style={styles.infos}>
+          <Text style={styles.date}>{articleLanguage(props.lang)}</Text>
+          <Text style={styles.date}>{date}</Text>
+        </View>
 
-      <RenderHtml
-      contentWidth={screenWidth*0.87}
-      source={source}
-    />
-      
+        <RenderHtml contentWidth={screenWidth * 0.87} source={source} />
       </ScrollView>
-      
     </Modalize>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf:'center',
+    alignSelf: 'center',
     paddingVertical: 20,
     width: screenWidth * 0.87,
     minHeight: 100,
@@ -76,10 +76,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: colors.onBoardingTitle,
   },
-  infos:{
-flexDirection:'row',
-justifyContent:'space-between',
-marginBottom: 20,
+  infos: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
   },
   date: {
     fontFamily: 'RedHatDisplay-Bold',

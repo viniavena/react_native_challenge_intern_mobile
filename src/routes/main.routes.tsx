@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 import MainScreen from '../screens/private/MainScreen';
@@ -20,7 +20,7 @@ export type PropsSignInScreen = NativeStackScreenProps<RootStackParamList, 'Sign
 export type PropsSignUpScreen = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
 export type PropsMainScreen = NativeStackScreenProps<RootStackParamList, 'MainScreen'>;
 
-const RootStack = createStackNavigator<RootStackParamList>();
+const RootStack = createNativeStackNavigator<RootStackParamList>();
 
 export default function MainStack(){
     return(

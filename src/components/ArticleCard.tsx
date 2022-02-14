@@ -25,25 +25,23 @@ const ArticleCard = (props: ArticleCardProps) => {
   };
 
   const articleLanguage = (lang: string) => {
-      var language = ''
-      if(lang == 'en'){
-       language = 'Inglês'   
-      }
-      else if(lang == 'es'){
-          language = 'Espanhol'
-      }
-      return language
-  }
+    var language = '';
+    if (lang == 'en') {
+      language = 'Inglês';
+    } else if (lang == 'es') {
+      language = 'Espanhol';
+    }
+    return language;
+  };
 
   return (
     <TouchableOpacity onPress={props.onPress} style={styles.cardContainer}>
       <Text style={styles.title}>{props.title}</Text>
       <Text style={styles.subTitle}>{formatContent(props.content)}</Text>
       <View style={styles.infos}>
-      <Text style={styles.date}>{articleLanguage(props.lang)}</Text>
-      <Text style={styles.date}>{date}</Text>
+        <Text style={styles.date}>{articleLanguage(props.lang)}</Text>
+        <Text style={styles.date}>{date}</Text>
       </View>
-      
     </TouchableOpacity>
   );
 };
@@ -66,9 +64,9 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     color: colors.onBoardingTitle,
   },
-  infos:{
-flexDirection:'row',
-justifyContent:'space-between'
+  infos: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   date: {
     fontFamily: 'RedHatDisplay-Bold',

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 import {StyleSheet, TextInput, Text} from 'react-native';
 import {screenHeight, screenWidth} from '../constants/dimensions';
 import {colors} from '../constants/theme';
 
 interface InputProps {
-  onChangeText: () => void;
+  onChangeText: Dispatch<SetStateAction<string>>;
   onBlur: () => void;
   value: string;
   secureTextEntry: boolean;
@@ -27,10 +27,10 @@ const Input = (props: InputProps) => {
 
 const styles = StyleSheet.create({
   input: {
-    textAlign:'center',
+    textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: screenHeight*0.025,
+    marginTop: screenHeight * 0.025,
     width: screenWidth * 0.87,
     height: 48,
     borderRadius: 4,

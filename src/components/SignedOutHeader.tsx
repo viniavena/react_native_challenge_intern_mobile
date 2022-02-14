@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native';
 import {screenHeight, screenWidth} from '../constants/dimensions';
-// import Icon from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/Feather';
 import { colors } from '../constants/theme';
 
 interface SignedOutHeaderProps {
@@ -15,13 +15,7 @@ const SignedOutHeader = (props: SignedOutHeaderProps) => {
       <TouchableOpacity
         onPress={props.onPress}
         style={styles.buttonContainer}>
-            {//<Icon name="users" size={60} color={colors.background} />
-            }
-        <Image source={
- require('../assets/images/arrow-left.png')
-      }
-      style={{height: screenHeight * 0.07}}
-      resizeMode="contain"/>
+            <Icon name="arrow-left" size={screenHeight * 0.03} color={colors.background} />
         </TouchableOpacity>
       <Text style={styles.headerText}>{props.text}</Text>
     </View>
