@@ -1,4 +1,4 @@
-import React , {useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
   StyleSheet,
@@ -10,7 +10,7 @@ import {
 
 import * as yup from 'yup';
 import {Formik} from 'formik';
-import { showMessage } from 'react-native-flash-message';
+import {showMessage} from 'react-native-flash-message';
 
 import {PropsSignInScreen} from '../../../routes/main.routes';
 import SanarLogo from '../../../components/SanarLogo';
@@ -18,7 +18,8 @@ import {colors} from '../../../constants/theme';
 import {screenHeight, screenWidth} from '../../../constants/dimensions';
 import MainButton from '../../../components/MainButton';
 import SignedOutHeader from '../../../components/SignedOutHeader';
-import {doLogin} from '../../../services/loginAPI'
+import {doLogin} from '../../../services/loginAPI';
+import Input from '../../../components/Input';
 
 const loginValidationSchema = yup.object().shape({
   email: yup
@@ -36,38 +37,42 @@ const loginValidationSchema = yup.object().shape({
 });
 
 const SignInScreen = ({navigation}: PropsSignInScreen) => {
+  const [loading, setLoading] = useState(false);
 
-const [loading, setLoading] = useState(false)
-
-  async function handleSubmit(values: any)
-  {
-    setLoading(true)
-    console.log(values)
-    const response = await doLogin(values)
-    if(response == 'OK'){
+  async function handleSubmit(values: any) {
+    setLoading(true);
+    console.log(values);
+    const response = await doLogin(values);
+    if (response == 'OK') {
       showMessage({
-        message: "Seja bem vind@!",
-        type: "success",
+        message: 'Seja bem vind@!',
+        type: 'success',
       });
-      navigation.navigate('MainScreen')
+      navigation.navigate('MainScreen');
     } else {
       showMessage({
-        message: "Erro ao fazer login",
-        type: "danger",
+        message: 'Erro ao fazer login',
+        type: 'danger',
       });
     }
-    setLoading(false)
+    setLoading(false);
   }
 
   return (
     <View style={styles.background}>
-      <SignedOutHeader onPress={() => navigation.navigate('OnboardScreen')} text="Login" />
+      <SignedOutHeader
+        onPress={() => navigation.navigate('OnboardScreen')}
+        text="Login"
+      />
 
       <SanarLogo negative={true} />
 
       <Image
         source={require('../../../assets/images/user-avatar.png')}
-        style={{height: screenHeight * 0.16, marginVertical: screenHeight*0.05}}
+        style={{
+          height: screenHeight * 0.16,
+          marginVertical: screenHeight * 0.05,
+        }}
         resizeMode="contain"
       />
       <Formik
@@ -78,37 +83,32 @@ const [loading, setLoading] = useState(false)
         }}>
         {({
           handleChange,
-          handleBlur,
           handleSubmit,
+          handleBlur,
           values,
           errors,
           isValid,
           touched,
         }) => (
           <>
-            <TextInput
-              style={styles.input}
-              placeholder="Digite seu e-mail"
-              placeholderTextColor={colors.background}
-              secureTextEntry={false}
+            <Input
+              placeHolder="Digite seu e-mail"
               onChangeText={handleChange('email')}
               onBlur={handleBlur('email')}
+              secureTextEntry={false}
               value={values.email}
               keyboardType="email-address"
               autoCapitalize="none"
-              autoCorrect={false}
             />
 
-            <TextInput
-              style={styles.input}
-              placeholder="Digite sua senha de acesso"
-              placeholderTextColor={colors.background}
-              secureTextEntry={true}
+            <Input
+              placeHolder="Digite sua senha de acesso"
               onChangeText={handleChange('password')}
               onBlur={handleBlur('password')}
+              secureTextEntry={true}
               value={values.password}
+              keyboardType="default"
               autoCapitalize="none"
-              autoCorrect={false}
             />
 
             <View style={{marginTop: 5, alignItems: 'center'}}>
@@ -138,8 +138,7 @@ const [loading, setLoading] = useState(false)
       <View
         style={{flexDirection: 'row', justifyContent: 'center', marginTop: 20}}>
         <Text style={styles.notAccess}>Não possui um acesso? </Text>
-        <TouchableOpacity
-        onPress={()=>navigation.navigate('SignUpScreen')}>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUpScreen')}>
           <Text style={styles.signUpButton}>Cadastre-se aqui!</Text>
         </TouchableOpacity>
       </View>
@@ -161,19 +160,6 @@ const styles = StyleSheet.create({
   signUpButton: {
     fontFamily: 'RedHatDisplay-Black',
     fontSize: 14,
-    color: colors.background,
-  },
-  input: {
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: screenHeight * 0.025,
-    width: screenWidth * 0.87,
-    height: 48,
-    borderRadius: 4,
-    borderColor: colors.background,
-    borderWidth: 1,
-    fontSize: 16,
     color: colors.background,
   },
   mainButton: {

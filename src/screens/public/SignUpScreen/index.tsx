@@ -17,6 +17,7 @@ import {screenHeight, screenWidth} from '../../../constants/dimensions';
 import MainButton from '../../../components/MainButton';
 import SignedOutHeader from '../../../components/SignedOutHeader';
 import {doCreateUser} from '../../../services/loginAPI'
+import Input from '../../../components/Input';
 
 const signUpValidationSchema = yup.object().shape({
   email: yup
@@ -83,39 +84,35 @@ const SignUpScreen = ({navigation}: PropsSignUpScreen) => {
         }) => (
           <>
           <View style={styles.formsContainer}>
-                      <TextInput
-              style={styles.input}
-              placeholder="Digite seu nome"
-              placeholderTextColor={colors.background}
-              secureTextEntry={false}
+
+          <Input
+              placeHolder="Digite seu nome"
               onChangeText={handleChange('name')}
               onBlur={handleBlur('name')}
-              value={values.name}
-              autoCorrect={false}
-            />
-            <TextInput
-              style={styles.input}
-              placeholder="Digite seu e-mail"
-              placeholderTextColor={colors.background}
               secureTextEntry={false}
+              value={values.name}
+              keyboardType="default"
+              autoCapitalize='words'
+            />
+            
+          <Input
+              placeHolder="Digite seu e-mail"
               onChangeText={handleChange('email')}
               onBlur={handleBlur('email')}
+              secureTextEntry={false}
               value={values.email}
               keyboardType="email-address"
-              autoCapitalize="none"
-              autoCorrect={false}
+              autoCapitalize='none'
             />
 
-            <TextInput
-              style={styles.input}
-              placeholder="Digite sua senha de acesso"
-              placeholderTextColor={colors.background}
-              secureTextEntry={true}
+<Input
+              placeHolder="Digite sua senha de acesso"
               onChangeText={handleChange('password')}
               onBlur={handleBlur('password')}
+              secureTextEntry={true}
               value={values.password}
-              autoCapitalize="none"
-              autoCorrect={false}
+              keyboardType='default'
+              autoCapitalize='none'
             />
 
 </View>

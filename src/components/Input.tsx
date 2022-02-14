@@ -1,14 +1,16 @@
-import React, { Dispatch, SetStateAction } from 'react';
-import {StyleSheet, TextInput, Text} from 'react-native';
+import React from 'react';
+import {KeyboardTypeOptions, NativeSyntheticEvent, StyleSheet, TextInput, TextInputFocusEventData} from 'react-native';
 import {screenHeight, screenWidth} from '../constants/dimensions';
 import {colors} from '../constants/theme';
 
 interface InputProps {
-  onChangeText: Dispatch<SetStateAction<string>>;
-  onBlur: () => void;
+  onChangeText: ((text: string) => void) | undefined;
+  onBlur: ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void) | undefined;
   value: string;
   secureTextEntry: boolean;
   placeHolder: string;
+  keyboardType: KeyboardTypeOptions | undefined;
+  autoCapitalize: "none" | "sentences" | "words" | "characters" | undefined;
 }
 
 const Input = (props: InputProps) => {
@@ -18,9 +20,12 @@ const Input = (props: InputProps) => {
       placeholder={props.placeHolder}
       placeholderTextColor={colors.background}
       secureTextEntry={props.secureTextEntry}
-      onChangeText={props.onChangeText}
       onBlur={props.onBlur}
+      onChangeText={props.onChangeText}
       value={props.value}
+      keyboardType={props.keyboardType}
+      autoCapitalize={props.autoCapitalize}
+      autoCorrect={false}
     />
   );
 };
