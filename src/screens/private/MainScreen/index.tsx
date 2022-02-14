@@ -33,11 +33,13 @@ const MainScreen = ({navigation}: PropsMainScreen) => {
   const [articleInfo, setArticleInfo] = useState<any>({});
 
   useEffect(() => {
-    setLoading(true);
+    
     let ignore = false;
 
     async function fetchData() {
+      setLoading(true);
       const result = await getArticles();
+      setLoading(false);
       if (!ignore) {setOriginalArticlesList(result.articles)
        setFilteredArticlesList(result.articles) 
       };
@@ -45,7 +47,6 @@ const MainScreen = ({navigation}: PropsMainScreen) => {
 
     fetchData();
 
-    setLoading(false);
     return () => {
       ignore = true;
     };

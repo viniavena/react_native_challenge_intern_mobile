@@ -39,7 +39,7 @@ const loginValidationSchema = yup.object().shape({
 const SignInScreen = ({navigation}: PropsSignInScreen) => {
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(values: any) {
+  async function logIn(values: any) {
     setLoading(true);
     console.log(values);
     const response = await doLogin(values);
@@ -79,11 +79,9 @@ const SignInScreen = ({navigation}: PropsSignInScreen) => {
       <Formik
         validationSchema={loginValidationSchema}
         initialValues={{email: '', password: ''}}
-        onSubmit={values => {
-          handleSubmit(values)
-        }}
-        onReset={(values): void => setUserSubmittedFormValues(values)}
-        >
+        onSubmit={(values) => {
+          logIn(values)
+        }}>
         {({
           handleChange,
           handleSubmit,
@@ -127,12 +125,10 @@ const SignInScreen = ({navigation}: PropsSignInScreen) => {
             <View style={styles.mainButton}>
               <MainButton
                 containerColor={colors.background}
-                onPress={
-                  handleSubmit
-                }
+                onPress={handleSubmit}
                 text="Entrar"
                 textColor={colors.primary}
-                disabled={!isValid}
+                disabled={!isValid || loading}
                 loading={loading}
               />
             </View>
@@ -173,7 +169,3 @@ const styles = StyleSheet.create({
 });
 
 export default SignInScreen;
-function setUserSubmittedFormValues(values: { email: string; password: string; }): void {
-  throw new Error('Function not implemented.');
-}
-
