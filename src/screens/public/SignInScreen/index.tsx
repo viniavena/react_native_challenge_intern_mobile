@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   Text,
   Image,
-  TextInput,
+  StatusBar,
 } from 'react-native';
 
 import * as yup from 'yup';
@@ -15,7 +15,7 @@ import {showMessage} from 'react-native-flash-message';
 import {PropsSignInScreen} from '../../../routes/main.routes';
 import SanarLogo from '../../../components/SanarLogo';
 import {colors} from '../../../constants/theme';
-import {screenHeight, screenWidth} from '../../../constants/dimensions';
+import {screenHeight} from '../../../constants/dimensions';
 import MainButton from '../../../components/MainButton';
 import SignedOutHeader from '../../../components/SignedOutHeader';
 import {doLogin} from '../../../services/loginAPI';
@@ -60,6 +60,7 @@ const SignInScreen = ({navigation}: PropsSignInScreen) => {
 
   return (
     <View style={styles.background}>
+      <StatusBar barStyle="light-content" />
       <SignedOutHeader
         onPress={() => navigation.navigate('OnboardScreen')}
         text="Login"

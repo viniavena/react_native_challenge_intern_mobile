@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   FlatList,
   Alert,
+  StatusBar,
 } from 'react-native';
 
 import {Modalize} from 'react-native-modalize';
@@ -19,14 +20,16 @@ import {colors} from '../../../constants/theme';
 import {screenHeight, screenWidth} from '../../../constants/dimensions';
 import ArticleCard from '../../../components/ArticleCard';
 import ArticleModal from '../../../components/ArticleModal';
+import SearchBar from '../../../components/SearchBar';
 
 const ItemDivider = () => {
   return <View style={styles.separator} />;
 };
 
 const MainScreen = ({navigation}: PropsMainScreen) => {
-  const [loading, setLoading] = useState(false);
-  const [articlesList, setArticlesList] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [originalArticlesList, setOriginalArticlesList] = useState<any[]>([]);
+  const [filteredArticlesList, setFilteredArticlesList] = useState<any[]>([]);
   const [articleInfo, setArticleInfo] = useState<any>({});
 
   useEffect(() => {
@@ -34,8 +37,10 @@ const MainScreen = ({navigation}: PropsMainScreen) => {
     let ignore = false;
 
     async function fetchData() {
-      const articles = await getArticles();
-      if (!ignore) setArticlesList(articles.articles);
+      const result = await getArticles();
+      if (!ignore) {setOriginalArticlesList(result.articles)
+       setFilteredArticlesList(result.articles) 
+      };
     }
 
     fetchData();
@@ -84,6 +89,7 @@ const MainScreen = ({navigation}: PropsMainScreen) => {
   return (
     <>
       <View style={styles.background}>
+        <StatusBar barStyle="dark-content" />
         <View style={styles.header}>
           <Text style={styles.title}>Meus artigos</Text>
 
@@ -102,22 +108,28 @@ const MainScreen = ({navigation}: PropsMainScreen) => {
             <ActivityIndicator size={'large'} color={colors.primary} />
           </View>
         ) : (
-          <FlatList
-            style={{width: screenWidth}}
-            contentContainerStyle={{alignItems: 'center'}}
-            data={articlesList}
-            renderItem={({item, index}) => (
-              <ArticleCard
-                key={index}
-                content={item.content}
-                date={item.date}
-                title={item.title}
-                lang={item.lang}
-                onPress={() => openDetails(item)}
-              />
-            )}
-            ItemSeparatorComponent={ItemDivider}
-          />
+          <>
+            <SearchBar
+              articlesList={originalArticlesList}
+              setFilteredList={setFilteredArticlesList}
+            />
+            <FlatList
+              style={{width: screenWidth}}
+              contentContainerStyle={{alignItems: 'center'}}
+              data={filteredArticlesList}
+              renderItem={({item, index}) => (
+                <ArticleCard
+                  key={index}
+                  content={item.content}
+                  date={item.date}
+                  title={item.title}
+                  lang={item.lang}
+                  onPress={() => openDetails(item)}
+                />
+              )}
+              ItemSeparatorComponent={ItemDivider}
+            />
+          </>
         )}
       </View>
 
