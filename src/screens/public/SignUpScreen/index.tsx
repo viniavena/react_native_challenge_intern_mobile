@@ -1,22 +1,17 @@
-import React , {useState} from 'react';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TextInput,
-} from 'react-native';
+import React, {useState} from 'react';
+import {View, StyleSheet, Text, StatusBar} from 'react-native';
 
 import * as yup from 'yup';
 import {Formik} from 'formik';
-import { showMessage } from "react-native-flash-message";
+import {showMessage} from 'react-native-flash-message';
 
 import {PropsSignUpScreen} from '../../../routes/main.routes';
 import SanarLogo from '../../../components/SanarLogo';
 import {colors} from '../../../constants/theme';
-import {screenHeight, screenWidth} from '../../../constants/dimensions';
+import {screenHeight} from '../../../constants/dimensions';
 import MainButton from '../../../components/MainButton';
 import SignedOutHeader from '../../../components/SignedOutHeader';
-import {doCreateUser} from '../../../services/loginAPI'
+import {doCreateUser} from '../../../services/loginAPI';
 import Input from '../../../components/Input';
 
 const signUpValidationSchema = yup.object().shape({
@@ -32,46 +27,43 @@ const signUpValidationSchema = yup.object().shape({
       /^(?=[^A-Z\n]*[A-Z])(?=[^a-z\n]*[a-z])(?=[^0-9\n]*[0-9])(?=[^#?!@$%^&*\n-]*[#?!@$%^&*-])/,
       'Senha inválida',
     ),
-    name: yup
-    .string()
-    .required('Nome é obrigatório')
+  name: yup.string().required('Nome é obrigatório'),
 });
 
 const SignUpScreen = ({navigation}: PropsSignUpScreen) => {
+  const [loading, setLoading] = useState(false);
 
-  const [loading, setLoading ] = useState(false);
-
-  async function handleSubmit(values: any)
-  {
-    setLoading(true)
-    console.log(values)
-    const response = await doCreateUser(values)
-    if(response == 'OK'){
+  async function handleSubmit(values: any) {
+    setLoading(true);
+    console.log(values);
+    const response = await doCreateUser(values);
+    if (response == 'OK') {
       showMessage({
-        message: "Cadastro criado com sucesso",
-        type: "success",
+        message: 'Cadastro criado com sucesso',
+        type: 'success',
       });
-      navigation.goBack()
+      navigation.goBack();
     } else {
       showMessage({
-        message: "Erro ao criar cadastro",
-        type: "danger",
+        message: 'Erro ao criar cadastro',
+        type: 'danger',
       });
     }
-    setLoading(false)
+    setLoading(false);
   }
 
   return (
     <View style={styles.background}>
+      <StatusBar barStyle="light-content" />
       <SignedOutHeader onPress={() => navigation.goBack()} text="Cadastro" />
 
       <SanarLogo negative={true} />
 
       <Formik
         validationSchema={signUpValidationSchema}
-        initialValues={{email: '', password: '', name:''}}
+        initialValues={{email: '', password: '', name: ''}}
         onSubmit={values => {
-          handleSubmit(values)
+          handleSubmit(values);
         }}>
         {({
           handleChange,
@@ -83,41 +75,39 @@ const SignUpScreen = ({navigation}: PropsSignUpScreen) => {
           touched,
         }) => (
           <>
-          <View style={styles.formsContainer}>
+            <View style={styles.formsContainer}>
+              <Input
+                placeHolder="Digite seu nome"
+                onChangeText={handleChange('name')}
+                onBlur={handleBlur('name')}
+                secureTextEntry={false}
+                value={values.name}
+                keyboardType="default"
+                autoCapitalize="words"
+              />
 
-          <Input
-              placeHolder="Digite seu nome"
-              onChangeText={handleChange('name')}
-              onBlur={handleBlur('name')}
-              secureTextEntry={false}
-              value={values.name}
-              keyboardType="default"
-              autoCapitalize='words'
-            />
-            
-          <Input
-              placeHolder="Digite seu e-mail"
-              onChangeText={handleChange('email')}
-              onBlur={handleBlur('email')}
-              secureTextEntry={false}
-              value={values.email}
-              keyboardType="email-address"
-              autoCapitalize='none'
-            />
+              <Input
+                placeHolder="Digite seu e-mail"
+                onChangeText={handleChange('email')}
+                onBlur={handleBlur('email')}
+                secureTextEntry={false}
+                value={values.email}
+                keyboardType="email-address"
+                autoCapitalize="none"
+              />
 
-<Input
-              placeHolder="Digite sua senha de acesso"
-              onChangeText={handleChange('password')}
-              onBlur={handleBlur('password')}
-              secureTextEntry={true}
-              value={values.password}
-              keyboardType='default'
-              autoCapitalize='none'
-            />
-
-</View>
+              <Input
+                placeHolder="Digite sua senha de acesso"
+                onChangeText={handleChange('password')}
+                onBlur={handleBlur('password')}
+                secureTextEntry={true}
+                value={values.password}
+                keyboardType="default"
+                autoCapitalize="none"
+              />
+            </View>
             <View style={{marginTop: 5, alignItems: 'center'}}>
-            {errors.name && touched.name && (
+              {errors.name && touched.name && (
                 <Text style={styles.acceptConditions}>{errors.name}</Text>
               )}
 
@@ -146,7 +136,10 @@ const SignUpScreen = ({navigation}: PropsSignUpScreen) => {
 
       <View
         style={{flexDirection: 'row', justifyContent: 'center', marginTop: 20}}>
-        <Text style={styles.acceptConditions}>Ao clicar em “Finalizar cadastro” você estará aceitando também nossos termos e condições. </Text>
+        <Text style={styles.acceptConditions}>
+          Ao clicar em “Finalizar cadastro” você estará aceitando também nossos
+          termos e condições.{' '}
+        </Text>
       </View>
     </View>
   );
@@ -162,32 +155,19 @@ const styles = StyleSheet.create({
     fontFamily: 'RedHatDisplay-Medium',
     fontSize: 14,
     color: colors.background,
-    textAlign:'center'
+    textAlign: 'center',
   },
   signUpButton: {
     fontFamily: 'RedHatDisplay-Black',
     fontSize: 14,
     color: colors.background,
   },
-  input: {
-    textAlign: 'center',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: screenHeight * 0.025,
-    width: screenWidth * 0.87,
-    height: 48,
-    borderRadius: 4,
-    borderColor: colors.background,
-    borderWidth: 1,
-    fontSize: 16,
-    color: colors.background,
-  },
   mainButton: {
     marginTop: screenHeight * 0.1,
   },
-  formsContainer:{
-    marginTop: screenHeight*0.1
-  }
+  formsContainer: {
+    marginTop: screenHeight * 0.1,
+  },
 });
 
 export default SignUpScreen;

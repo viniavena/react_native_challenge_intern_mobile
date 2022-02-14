@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {format} from 'date-fns';
 import {Modalize} from 'react-native-modalize';
-import RenderHtml from 'react-native-render-html';
+import RenderHtml, {defaultSystemFonts} from 'react-native-render-html';
 
 import {screenHeight, screenWidth} from '../constants/dimensions';
 import {colors} from '../constants/theme';
@@ -17,14 +17,12 @@ interface ArticleModalProps {
 }
 
 const ArticleModal = (props: ArticleModalProps) => {
-
-  let date = props.date
-  try{
+  let date = props.date;
+  try {
     date = format(new Date(props.date.split(' ')[0]), 'dd/MM/yyyy');
-  } catch(err){
-    console.log(err)
+  } catch (err) {
+    console.log(err);
   }
-  
 
   const formatContent = (content: string) => {
     var str = '';
@@ -37,6 +35,8 @@ const ArticleModal = (props: ArticleModalProps) => {
   const source = {
     html: props.content,
   };
+
+  const tagsConfig = {a: {color: colors.primary}, h2: {fontSize: 18}};
 
   const articleLanguage = (lang: string) => {
     var language = '';
@@ -57,7 +57,18 @@ const ArticleModal = (props: ArticleModalProps) => {
           <Text style={styles.date}>{date}</Text>
         </View>
 
-        <RenderHtml contentWidth={screenWidth * 0.87} source={source} />
+        <RenderHtml
+          contentWidth={screenWidth * 0.87}
+          source={source}
+          tagsStyles={tagsConfig}
+          baseStyle={{color: colors.onBoardingTitle, textAlign: 'justify'}}
+          systemFonts={[
+            ...defaultSystemFonts,
+            'RedHatDisplay-Regular',
+            'RedHatDisplay-Bold',
+            'RedHatDisplay-Black',
+          ]}
+        />
       </ScrollView>
     </Modalize>
   );
@@ -73,7 +84,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'RedHatDisplay-Bold',
-    fontSize: 18,
+    fontSize: 22,
     color: colors.onBoardingTitle,
   },
   infos: {
