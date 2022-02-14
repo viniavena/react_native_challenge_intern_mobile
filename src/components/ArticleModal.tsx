@@ -1,12 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import {format} from 'date-fns';
 import {Modalize} from 'react-native-modalize';
-import RenderHtml, {defaultSystemFonts} from 'react-native-render-html';
+import RenderHtml, {
+  defaultSystemFonts,
+  useNormalizedUrl,
+} from 'react-native-render-html';
 
 import {screenHeight, screenWidth} from '../constants/dimensions';
 import {colors} from '../constants/theme';
-import {ScrollView} from 'react-native-gesture-handler';
 
 interface ArticleModalProps {
   modalRef: any;
@@ -24,19 +26,17 @@ const ArticleModal = (props: ArticleModalProps) => {
     console.log(err);
   }
 
-  const formatContent = (content: string) => {
-    var str = '';
-    try {
-      str = content.split('<strong>')[1].split('</strong>')[0];
-    } catch (err) {}
-    return str;
-  };
+  const baseUrl = 'https://www.healthcare.gov';
 
   const source = {
     html: props.content,
   };
 
-  const tagsConfig = {a: {color: colors.primary}, h2: {fontSize: 18}};
+  const tagsConfig = {
+    a: {color: colors.primary
+    },
+    h2: {fontSize: 18},
+  };
 
   const articleLanguage = (lang: string) => {
     var language = '';

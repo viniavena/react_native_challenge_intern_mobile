@@ -80,8 +80,10 @@ const SignInScreen = ({navigation}: PropsSignInScreen) => {
         validationSchema={loginValidationSchema}
         initialValues={{email: '', password: ''}}
         onSubmit={values => {
-          handleSubmit(values);
-        }}>
+          handleSubmit(values)
+        }}
+        onReset={(values): void => setUserSubmittedFormValues(values)}
+        >
         {({
           handleChange,
           handleSubmit,
@@ -125,7 +127,9 @@ const SignInScreen = ({navigation}: PropsSignInScreen) => {
             <View style={styles.mainButton}>
               <MainButton
                 containerColor={colors.background}
-                onPress={handleSubmit}
+                onPress={
+                  handleSubmit
+                }
                 text="Entrar"
                 textColor={colors.primary}
                 disabled={!isValid}
@@ -169,3 +173,7 @@ const styles = StyleSheet.create({
 });
 
 export default SignInScreen;
+function setUserSubmittedFormValues(values: { email: string; password: string; }): void {
+  throw new Error('Function not implemented.');
+}
+
