@@ -42,14 +42,15 @@ const SignUpScreen = ({navigation}: PropsSignUpScreen) => {
         message: 'Cadastro criado com sucesso',
         type: 'success',
       });
+      setLoading(false);
       navigation.goBack();
     } else {
       showMessage({
         message: 'Erro ao criar cadastro',
         type: 'danger',
       });
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   return (

@@ -47,14 +47,15 @@ const SignInScreen = ({navigation}: PropsSignInScreen) => {
         message: 'Seja bem vind@!',
         type: 'success',
       });
+      setLoading(false);
       navigation.navigate('MainScreen');
     } else {
       showMessage({
         message: 'Erro ao fazer login',
         type: 'danger',
       });
+      setLoading(false);
     }
-    setLoading(false);
   }
 
   return (
@@ -78,8 +79,8 @@ const SignInScreen = ({navigation}: PropsSignInScreen) => {
       <Formik
         validationSchema={loginValidationSchema}
         initialValues={{email: '', password: ''}}
-        onSubmit={(values) => {
-          logIn(values)
+        onSubmit={values => {
+          logIn(values);
         }}>
         {({
           handleChange,
