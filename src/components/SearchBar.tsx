@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, TextInput, View, TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/Feather';
+import {StyleSheet, TextInput, View, TouchableOpacity, Image} from 'react-native';
 
 import {screenHeight, screenWidth} from '../constants/dimensions';
 import {colors} from '../constants/theme';
@@ -31,12 +30,7 @@ const SearchBar = (props: SearchBarProps) => {
 
   return (
     <View style={styles.container}>
-      <Icon
-        name="search"
-        size={screenHeight * 0.03}
-        color={colors.onBoardingTitle + 'aa'}
-        style={styles.searchIcon}
-      />
+      <Image source={require('../assets/icons/search.png')} style={styles.searchIcon}/>      
       <TextInput
         style={styles.input}
         placeholder={'Pesquise por um artigo'}
@@ -50,11 +44,7 @@ const SearchBar = (props: SearchBarProps) => {
         <TouchableOpacity
           style={styles.cancelIcon}
           onPress={() => searchFilter('')}>
-          <Icon
-            name="x"
-            size={screenHeight * 0.03}
-            color={colors.onBoardingTitle + 'aa'}
-          />
+          <Image source={require('../assets/icons/cancel.png')} style={styles.cancelIcon}/>
         </TouchableOpacity>
       ) : null}
     </View>
@@ -74,6 +64,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   searchIcon: {
+    height: screenHeight * 0.035,
     left: 10,
     marginRight: 20,
   },

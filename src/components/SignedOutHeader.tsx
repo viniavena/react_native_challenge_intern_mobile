@@ -1,8 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native';
 import {screenHeight, screenWidth} from '../constants/dimensions';
-import Icon from 'react-native-vector-icons/Feather';
-import { colors } from '../constants/theme';
+import {colors} from '../constants/theme';
 
 interface SignedOutHeaderProps {
   onPress: () => void;
@@ -12,11 +11,12 @@ interface SignedOutHeaderProps {
 const SignedOutHeader = (props: SignedOutHeaderProps) => {
   return (
     <View style={styles.headerContainer}>
-      <TouchableOpacity
-        onPress={props.onPress}
-        style={styles.buttonContainer}>
-            <Icon name="arrow-left" size={screenHeight * 0.03} color={colors.background} />
-        </TouchableOpacity>
+      <TouchableOpacity onPress={props.onPress}>
+        <Image
+          source={require('../assets/icons/arrow-left.png')}
+          resizeMode={'contain'}
+        />
+      </TouchableOpacity>
       <Text style={styles.headerText}>{props.text}</Text>
     </View>
   );
@@ -24,18 +24,17 @@ const SignedOutHeader = (props: SignedOutHeaderProps) => {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    marginLeft: screenWidth*0.1,
-    flexDirection:'row',
-    alignItems:'center',
+    marginLeft: screenWidth * 0.1,
+    flexDirection: 'row',
+    alignItems: 'center',
     width: screenWidth,
-    marginBottom: screenHeight*0.05
+    marginBottom: screenHeight * 0.05,
   },
-  buttonContainer: {},
   headerText: {
     fontFamily: 'RedHatDisplay-Black',
     fontSize: 20,
     color: colors.background,
-    marginLeft: 24
+    marginLeft: 24,
   },
 });
 
